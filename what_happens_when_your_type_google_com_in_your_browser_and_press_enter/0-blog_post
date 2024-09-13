@@ -1,1 +1,64 @@
+What Happens When You Type https://www.google.com in Your Browser?
 
+When you type https://www.google.com into your browser and press Enter, a complex series of events unfolds behind the scenes to deliver the Google homepage to your screen. Let's break down the key components involved in this process.
+1. DNS Request
+
+The first step is the Domain Name System (DNS) lookup. Your browser needs to convert the human-readable domain name (www.google.com) into an IP address that computers can understand.
+
+    DNS Query: When you press Enter, your computer sends a DNS query to a DNS server. This query asks, "What is the IP address of www.google.com?"
+    Response: The DNS server responds with the corresponding IP address (e.g., 172.217.14.206), which your browser will use to reach the Google servers.
+
+2. TCP/IP Connection
+
+With the IP address in hand, your browser establishes a connection using the Transmission Control Protocol (TCP) over the Internet Protocol (IP).
+
+    TCP Handshake: A three-way handshake occurs between your browser and the Google server. Your browser sends a SYN packet to initiate the connection, the server responds with SYN-ACK, and finally, your browser sends an ACK packet to confirm the connection.
+    IP Addressing: This ensures that data packets can be sent to and from the correct addresses across the internet.
+
+3. Firewall
+
+Before your request reaches Google’s web servers, it passes through various firewalls.
+
+    Security Layer: Firewalls monitor incoming and outgoing traffic based on predetermined security rules. They protect Google’s infrastructure from unauthorized access and potential attacks.
+    Packet Filtering: If the request complies with security policies, the firewall allows it to pass; otherwise, it is blocked.
+
+4. HTTPS/SSL Encryption
+
+Once the TCP connection is established, your browser initiates an HTTPS request.
+
+    SSL/TLS Handshake: HTTPS stands for Hypertext Transfer Protocol Secure, and it uses SSL (Secure Sockets Layer) or its successor TLS (Transport Layer Security) to encrypt the data transmitted between your browser and Google’s servers.
+    Secure Connection: During the handshake, the browser and server exchange encryption keys, ensuring that all data exchanged is secure and private. This is crucial for protecting sensitive information, such as login credentials.
+
+5. Load Balancer
+
+After the secure connection is established, the request is directed to a load balancer.
+
+    Traffic Distribution: The load balancer manages incoming traffic and distributes it across multiple web servers to ensure no single server is overwhelmed. This improves response times and enhances availability.
+    Redundancy: If one server fails, the load balancer redirects traffic to healthy servers, ensuring continuous service.
+
+6. Web Server
+
+The request reaches a web server, such as Nginx or Apache.
+
+    Static Content Delivery: The web server handles incoming requests for static content (e.g., images, stylesheets) and serves these files directly to your browser.
+    Dynamic Requests: For dynamic content, such as personalized search results, the web server forwards the request to the application server.
+
+7. Application Server
+
+The application server processes the request.
+
+    Business Logic: It executes the application’s business logic, generating the appropriate response based on user input and application state.
+    Database Interaction: If the application needs to fetch or store data, the application server communicates with the database server.
+
+8. Database
+
+The final step involves the database.
+
+    Data Retrieval/Storage: The application server queries the database (e.g., MySQL) to retrieve or update information. This could include user settings, search queries, or any relevant data.
+    Response Generation: Once the application server has the required data, it generates an HTML response, which is sent back to the web server.
+
+Conclusion
+
+Finally, the web server sends the generated HTML response back to your browser via the load balancer and TCP connection, displaying the Google homepage on your screen.
+
+Understanding this workflow highlights the complexity and efficiency of modern web technologies, ensuring a seamless experience for users. Each component plays a crucial role in delivering content quickly, securely, and reliably.
